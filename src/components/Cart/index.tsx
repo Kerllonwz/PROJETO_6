@@ -15,6 +15,28 @@ const Cart = ({ isOpen, onClose }: Props) => {
     return price.toFixed(2).replace('.', ',')
   }
 
+  const handleCheckout = () => {
+    if (items.length === 0) {
+      alert('Adicione itens ao carrinho antes de continuar!')
+      return
+    }
+    
+    const total = getTotalPrice()
+    const itemsList = items
+      .map((item) => `${item.quantity}x ${item.name} - R$ ${formatPrice(item.price * item.quantity)}`)
+      .join('\n')
+    
+    alert(
+      `Pedido finalizado!\n\n` +
+      `Itens:\n${itemsList}\n\n` +
+      `Total: R$ ${formatPrice(total)}\n\n` +
+      `Em breve você será redirecionado para a página de entrega.`
+    )
+    
+    // Aqui você pode adicionar navegação para página de checkout
+    // Por exemplo: navigate('/checkout')
+  }
+
   return (
     <S.Overlay onClick={onClose}>
       <S.Sidebar onClick={(e) => e.stopPropagation()}>
@@ -45,7 +67,7 @@ const Cart = ({ isOpen, onClose }: Props) => {
               <span>R$ {formatPrice(getTotalPrice())}</span>
             </S.TotalPrice>
             
-            <S.CheckoutButton>
+            <S.CheckoutButton onClick={handleCheckout}>
               Continuar com a entrega
             </S.CheckoutButton>
           </>
