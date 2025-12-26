@@ -90,7 +90,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
 
   return (
     <S.Overlay onClick={onClose}>
-      <S.Sidebar onClick={(e) => e.stopPropagation()}>
+      <S.Sidebar onClick={(e: React.MouseEvent) => e.stopPropagation()}>
         {step === 'delivery' && (
           <>
             <S.Title>Entrega</S.Title>
@@ -100,7 +100,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                 <S.Input
                   type="text"
                   value={deliveryData.receiver}
-                  onChange={(e) => setDeliveryData({ ...deliveryData, receiver: e.target.value })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDeliveryData({ ...deliveryData, receiver: e.target.value })}
                   required
                 />
               </S.InputGroup>
@@ -110,7 +110,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                 <S.Input
                   type="text"
                   value={deliveryData.address}
-                  onChange={(e) => setDeliveryData({ ...deliveryData, address: e.target.value })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDeliveryData({ ...deliveryData, address: e.target.value })}
                   required
                 />
               </S.InputGroup>
@@ -120,7 +120,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                 <S.Input
                   type="text"
                   value={deliveryData.city}
-                  onChange={(e) => setDeliveryData({ ...deliveryData, city: e.target.value })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDeliveryData({ ...deliveryData, city: e.target.value })}
                   required
                 />
               </S.InputGroup>
@@ -131,7 +131,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                   <S.Input
                     type="text"
                     value={deliveryData.cep}
-                    onChange={(e) => setDeliveryData({ ...deliveryData, cep: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDeliveryData({ ...deliveryData, cep: e.target.value })}
                     maxLength={9}
                     required
                   />
@@ -142,7 +142,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                   <S.Input
                     type="text"
                     value={deliveryData.number}
-                    onChange={(e) => setDeliveryData({ ...deliveryData, number: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDeliveryData({ ...deliveryData, number: e.target.value })}
                     required
                   />
                 </S.InputGroup>
@@ -153,7 +153,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                 <S.Input
                   type="text"
                   value={deliveryData.complement}
-                  onChange={(e) => setDeliveryData({ ...deliveryData, complement: e.target.value })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDeliveryData({ ...deliveryData, complement: e.target.value })}
                 />
               </S.InputGroup>
 
@@ -176,7 +176,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                 <S.Input
                   type="text"
                   value={paymentData.cardName}
-                  onChange={(e) => setPaymentData({ ...paymentData, cardName: e.target.value })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPaymentData({ ...paymentData, cardName: e.target.value })}
                   required
                 />
               </S.InputGroup>
@@ -187,7 +187,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                   <S.Input
                     type="text"
                     value={paymentData.cardNumber}
-                    onChange={(e) => setPaymentData({ ...paymentData, cardNumber: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPaymentData({ ...paymentData, cardNumber: e.target.value })}
                     maxLength={19}
                     required
                   />
@@ -198,7 +198,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                   <S.Input
                     type="text"
                     value={paymentData.cvv}
-                    onChange={(e) => setPaymentData({ ...paymentData, cvv: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPaymentData({ ...paymentData, cvv: e.target.value })}
                     maxLength={3}
                     required
                   />
@@ -211,7 +211,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                   <S.Input
                     type="text"
                     value={paymentData.expiryMonth}
-                    onChange={(e) => setPaymentData({ ...paymentData, expiryMonth: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPaymentData({ ...paymentData, expiryMonth: e.target.value })}
                     placeholder="MM"
                     maxLength={2}
                     required
@@ -223,7 +223,7 @@ const Checkout = ({ isOpen, onClose }: Props) => {
                   <S.Input
                     type="text"
                     value={paymentData.expiryYear}
-                    onChange={(e) => setPaymentData({ ...paymentData, expiryYear: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPaymentData({ ...paymentData, expiryYear: e.target.value })}
                     placeholder="AAAA"
                     maxLength={4}
                     required

@@ -22,7 +22,7 @@ const ProductModal = ({ isOpen, onClose, item, onAddToCart }: Props) => {
 
   return (
     <S.Overlay onClick={onClose}>
-      <S.Modal onClick={(e) => e.stopPropagation()}>
+      <S.Modal onClick={(e: React.MouseEvent) => e.stopPropagation()}>
         <S.CloseButton onClick={onClose}>&times;</S.CloseButton>
         <S.ModalContent>
           <S.ProductImage src={item.image} alt={item.name} />
