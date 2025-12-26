@@ -7,21 +7,21 @@ interface HeaderProps {
   onOpenCart?: () => void
 }
 
-const Header = ({ variant = 'hero', onOpenCart }: HeaderProps) => {
-  const { getTotalItems } = useCart()
+const HeroHeader = () => {
+  return (
+    <S.HeaderBar className="hero">
+      <div className="container">
+        <S.Logo>efood</S.Logo>
+        <S.Tagline>
+          Viva experiências gastronômicas no conforto da sua casa
+        </S.Tagline>
+      </div>
+    </S.HeaderBar>
+  )
+}
 
-  if (variant === 'hero') {
-    return (
-      <S.HeaderBar className="hero">
-        <div className="container">
-          <S.Logo>efood</S.Logo>
-          <S.Tagline>
-            Viva experiências gastronômicas no conforto da sua casa
-          </S.Tagline>
-        </div>
-      </S.HeaderBar>
-    )
-  }
+const SimpleHeader = ({ onOpenCart }: { onOpenCart?: () => void }) => {
+  const { getTotalItems } = useCart()
 
   return (
     <S.HeaderBar>
@@ -38,6 +38,14 @@ const Header = ({ variant = 'hero', onOpenCart }: HeaderProps) => {
       </div>
     </S.HeaderBar>
   )
+}
+
+const Header = ({ variant = 'hero', onOpenCart }: HeaderProps) => {
+  if (variant === 'hero') {
+    return <HeroHeader />
+  }
+
+  return <SimpleHeader onOpenCart={onOpenCart} />
 }
 
 export default Header
