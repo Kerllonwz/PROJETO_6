@@ -10,6 +10,7 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: flex-end;
   z-index: 1000;
+  overflow: hidden;
 `
 
 export const Sidebar = styled.div`
@@ -47,8 +48,9 @@ export const InputGroup = styled.div`
 
 export const InputRow = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  grid-template-columns: 155px 155px;
+  gap: 34px;
+  max-width: 100%;
 `
 
 export const Label = styled.label`
