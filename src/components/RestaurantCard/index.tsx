@@ -21,7 +21,7 @@ const RestaurantCard = ({ restaurant }: Props) => {
           <S.Title>{restaurant.title}</S.Title>
           <S.Rating>
             {restaurant.rating}
-            <img src="/images/star.png" alt="Estrela" />
+            <img src="/images/star.svg" alt="Estrela" />
           </S.Rating>
         </S.TitleRow>
         <S.Description>{restaurant.description}</S.Description>

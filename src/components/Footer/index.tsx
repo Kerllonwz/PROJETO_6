@@ -7,13 +7,13 @@ const Footer = () => {
         <S.Logo>efood</S.Logo>
         <S.SocialLinks>
           <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="/images/instagram.png" alt="Instagram" />
+            <img src="/images/instagram.svg" alt="Instagram" />
           </a>
           <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="/images/facebook.png" alt="Facebook" />
+            <img src="/images/facebook.svg" alt="Facebook" />
           </a>
           <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="/images/twitter.png" alt="Twitter" />
+            <img src="/images/twitter.svg" alt="Twitter" />
           </a>
         </S.SocialLinks>
         <S.Description>
