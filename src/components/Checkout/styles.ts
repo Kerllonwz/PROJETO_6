@@ -45,12 +45,14 @@ export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
 `
 
 export const InputRow = styled.div`
   display: grid;
-  grid-template-columns: 155px 155px;
+  grid-template-columns: 1fr 1fr;
   gap: 34px;
+  width: 100%;
 `
 
 export const Label = styled.label`
@@ -66,7 +68,9 @@ export const Input = styled.input`
   font-size: 14px;
   font-weight: 700;
   color: #4b4b4b;
+  width: 100%;
   box-sizing: border-box;
+  min-width: 0;
 
   &::placeholder {
     color: #4b4b4b;
