@@ -207,7 +207,7 @@ const menusByRestaurant: { [key: number]: MenuItem[] } = {
       id: 406,
       name: 'Guacamole com Chips',
       description: 'Guacamole fresco feito na hora com abacate, tomate, cebola e limão. Chips de tortilla crocantes.',
-      image: 'https://images.unsplash.com/photo-1550534791-2677533605ab?w=300&h=200&fit=crop',
+      image: '/guacamole.jpg',
       portion: 'Serve 2 pessoas',
       price: 24.90,
     },
