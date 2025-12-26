@@ -65,6 +65,7 @@ const mockMenu: MenuItem[] = [
 
 const Restaurant = () => {
   const { id } = useParams()
+  console.log('ID do restaurante:', id) // Para uso futuro com API
 
   const handleAddToCart = (item: MenuItem) => {
     console.log('Adicionado ao carrinho:', item)
