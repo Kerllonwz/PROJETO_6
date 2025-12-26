@@ -30,6 +30,16 @@ export const BannerContent = styled.div`
   padding: 25px 0 32px;
 `
 
+export const RestaurantInfo = styled.div`
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px 0 32px;
+`
+
 export const Category = styled.p`
   font-size: 32px;
   font-weight: 100;

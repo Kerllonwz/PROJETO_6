@@ -29,7 +29,6 @@ const Restaurant = () => {
         setLoading(true)
         const restaurantId = parseInt(id)
         
-        // Buscar dados do restaurante e menu em paralelo
         const [restaurantData, menuData] = await Promise.all([
           fetchRestaurantById(restaurantId),
           fetchRestaurantMenu(restaurantId)
@@ -47,7 +46,8 @@ const Restaurant = () => {
     loadRestaurantData()
   }, [id])
 
-  const handleItemClick = (item: MenuItem) => {
+  const handleAddToCart = (item: MenuItem) => {
+    addToCart(item)
     setSelectedItem(item)
   }
 
@@ -55,14 +55,18 @@ const Restaurant = () => {
     setSelectedItem(null)
   }
 
-  const handleAddToCart = () => {
+  const handleModalAddToCart = () => {
     if (selectedItem) {
       addToCart(selectedItem)
     }
   }
 
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen)
+  const openCart = () => {
+    setIsCartOpen(true)
+  }
+
+  const closeCart = () => {
+    setIsCartOpen(false)
   }
 
   const openCheckout = () => {
@@ -77,7 +81,7 @@ const Restaurant = () => {
   if (loading) {
     return (
       <>
-        <Header variant="simple" onCartClick={toggleCart} />
+        <Header variant="simple" onOpenCart={openCart} />
         <div className="container">
           <p style={{ textAlign: 'center', padding: '40px 0' }}>Carregando cardápio...</p>
         </div>
@@ -89,7 +93,7 @@ const Restaurant = () => {
   if (!restaurant) {
     return (
       <>
-        <Header variant="simple" onCartClick={toggleCart} />
+        <Header variant="simple" onOpenCart={openCart} />
         <div className="container">
           <p style={{ textAlign: 'center', padding: '40px 0' }}>Restaurante não encontrado.</p>
         </div>
@@ -100,7 +104,7 @@ const Restaurant = () => {
 
   return (
     <>
-      <Header variant="simple" onCartClick={toggleCart} />
+      <Header variant="simple" onOpenCart={openCart} />
       <S.Banner style={{ backgroundImage: `url(${restaurant.image})` }}>
         <div className="container">
           <S.RestaurantInfo>
@@ -110,15 +114,19 @@ const Restaurant = () => {
         </div>
       </S.Banner>
       <div className="container">
-        <MenuList items={menuItems} onItemClick={handleItemClick} />
+        <MenuList items={menuItems} onAddToCart={handleAddToCart} />
       </div>
       <Footer />
-      <Cart isOpen={isCartOpen} onClose={toggleCart} onCheckout={openCheckout} />
+      <Cart 
+        isOpen={isCartOpen} 
+        onClose={closeCart} 
+        onContinueToCheckout={openCheckout} 
+      />
       <ProductModal
         isOpen={selectedItem !== null}
         onClose={handleCloseModal}
         item={selectedItem}
-        onAddToCart={handleAddToCart}
+        onAddToCart={handleModalAddToCart}
       />
       <Checkout isOpen={isCheckoutOpen} onClose={closeCheckout} />
     </>
