@@ -38,6 +38,7 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 8px;
   padding: 0 8px;
+  max-width: 344px;
 `
 
 export const InputGroup = styled.div`
@@ -50,7 +51,6 @@ export const InputRow = styled.div`
   display: grid;
   grid-template-columns: 155px 155px;
   gap: 34px;
-  max-width: 100%;
 `
 
 export const Label = styled.label`
@@ -66,7 +66,6 @@ export const Input = styled.input`
   font-size: 14px;
   font-weight: 700;
   color: #4b4b4b;
-  width: 100%;
   box-sizing: border-box;
 
   &::placeholder {
