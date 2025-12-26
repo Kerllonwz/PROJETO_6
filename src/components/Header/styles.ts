@@ -19,6 +19,8 @@ export const Logo = styled.h1`
   font-weight: 900;
   color: ${colors.primary};
   margin-bottom: 138px;
+  letter-spacing: 1px;
+  text-transform: lowercase;
 
   &.small {
     margin-bottom: 0;
@@ -31,7 +33,8 @@ export const Tagline = styled.p`
   color: ${colors.primary};
   max-width: 540px;
   margin: 0 auto;
-  line-height: 42px;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
 `
 
 export const Nav = styled.nav`
