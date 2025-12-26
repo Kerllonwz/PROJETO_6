@@ -19,7 +19,9 @@ export const Sidebar = styled.div`
   background-color: #e66767;
   padding: 32px 8px;
   overflow-y: auto;
+  overflow-x: hidden;
   color: #ffebd9;
+  box-sizing: border-box;
 `
 
 export const Title = styled.h2`
@@ -46,7 +48,7 @@ export const InputGroup = styled.div`
 export const InputRow = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 34px;
+  gap: 8px;
 `
 
 export const Label = styled.label`
@@ -62,6 +64,8 @@ export const Input = styled.input`
   font-size: 14px;
   font-weight: 700;
   color: #4b4b4b;
+  width: 100%;
+  box-sizing: border-box;
 
   &::placeholder {
     color: #4b4b4b;
