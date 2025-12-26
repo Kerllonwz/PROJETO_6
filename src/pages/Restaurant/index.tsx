@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useCart } from '../../context/CartContext'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MenuList from '../../components/MenuList'
+import Cart from '../../components/Cart'
 import { MenuItem } from '../../types'
 import * as S from './styles'
 
@@ -65,16 +68,18 @@ const mockMenu: MenuItem[] = [
 
 const Restaurant = () => {
   const { id } = useParams()
-  console.log('ID do restaurante:', id) // Para uso futuro com API
+  const { addToCart } = useCart()
+  const [isCartOpen, setIsCartOpen] = useState(false)
+  
+  console.log('ID do restaurante:', id)
 
   const handleAddToCart = (item: MenuItem) => {
-    console.log('Adicionado ao carrinho:', item)
-    // Implementar lógica do carrinho
+    addToCart(item)
   }
 
   return (
     <>
-      <Header variant="simple" />
+      <Header variant="simple" onOpenCart={() => setIsCartOpen(true)} />
       <S.Banner style={{ backgroundImage: 'url(/images/restaurant-banner.png)' }}>
         <div className="container">
           <S.BannerContent>
@@ -87,6 +92,7 @@ const Restaurant = () => {
         <MenuList items={mockMenu} onAddToCart={handleAddToCart} />
       </div>
       <Footer />
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </>
   )
 }

@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom'
+import { useCart } from '../../context/CartContext'
 import * as S from './styles'
 
 interface HeaderProps {
   variant?: 'hero' | 'simple'
+  onOpenCart?: () => void
 }
 
-const Header = ({ variant = 'hero' }: HeaderProps) => {
+const Header = ({ variant = 'hero', onOpenCart }: HeaderProps) => {
+  const { getTotalItems } = useCart()
+
   if (variant === 'hero') {
     return (
       <S.HeaderBar className="hero">
@@ -27,7 +31,9 @@ const Header = ({ variant = 'hero' }: HeaderProps) => {
           <Link to="/">
             <S.Logo className="small">efood</S.Logo>
           </Link>
-          <S.CartButton>0 produto(s) no carrinho</S.CartButton>
+          <S.CartButton onClick={onOpenCart}>
+            {getTotalItems()} produto(s) no carrinho
+          </S.CartButton>
         </S.Nav>
       </div>
     </S.HeaderBar>

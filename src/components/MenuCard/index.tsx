@@ -7,12 +7,18 @@ interface Props {
 }
 
 const MenuCard = ({ item, onAddToCart }: Props) => {
+
+  const handleAddToCart = () => {
+    onAddToCart(item)
+    alert(`${item.name} adicionado ao carrinho!`)
+  }
+
   return (
     <S.Card>
       <S.Image src={item.image} alt={item.name} />
       <S.Title>{item.name}</S.Title>
       <S.Description>{item.description}</S.Description>
-      <S.Button onClick={() => onAddToCart(item)}>
+      <S.Button onClick={handleAddToCart}>
         Adicionar ao carrinho
       </S.Button>
     </S.Card>
