@@ -10,7 +10,6 @@ const MenuCard = ({ item, onAddToCart }: Props) => {
 
   const handleAddToCart = () => {
     onAddToCart(item)
-    alert(`${item.name} adicionado ao carrinho!`)
   }
 
   return (
