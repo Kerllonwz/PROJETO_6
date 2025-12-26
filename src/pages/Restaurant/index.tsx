@@ -15,7 +15,7 @@ const mockMenu: MenuItem[] = [
     name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: '/images/pizza.png',
+    image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=200&fit=crop',
     portion: 'Serve de 2 a 3 pessoas',
     price: 60.9,
   },
@@ -24,7 +24,7 @@ const mockMenu: MenuItem[] = [
     name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: '/images/pizza.png',
+    image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=200&fit=crop',
     portion: 'Serve de 2 a 3 pessoas',
     price: 60.9,
   },
@@ -33,7 +33,7 @@ const mockMenu: MenuItem[] = [
     name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: '/images/pizza.png',
+    image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=200&fit=crop',
     portion: 'Serve de 2 a 3 pessoas',
     price: 60.9,
   },
@@ -42,7 +42,7 @@ const mockMenu: MenuItem[] = [
     name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: '/images/pizza.png',
+    image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=200&fit=crop',
     portion: 'Serve de 2 a 3 pessoas',
     price: 60.9,
   },
@@ -51,7 +51,7 @@ const mockMenu: MenuItem[] = [
     name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: '/images/pizza.png',
+    image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=200&fit=crop',
     portion: 'Serve de 2 a 3 pessoas',
     price: 60.9,
   },
@@ -60,7 +60,7 @@ const mockMenu: MenuItem[] = [
     name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: '/images/pizza.png',
+    image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=200&fit=crop',
     portion: 'Serve de 2 a 3 pessoas',
     price: 60.9,
   },
@@ -80,7 +80,7 @@ const Restaurant = () => {
   return (
     <>
       <Header variant="simple" onOpenCart={() => setIsCartOpen(true)} />
-      <S.Banner style={{ backgroundImage: 'url(/images/restaurant-banner.png)' }}>
+      <S.Banner style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=300&fit=crop)' }}>
         <div className="container">
           <S.BannerContent>
             <S.Category>Italiana</S.Category>

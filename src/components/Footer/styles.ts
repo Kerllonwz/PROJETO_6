@@ -21,9 +21,20 @@ export const SocialLinks = styled.div`
   justify-content: center;
   margin-bottom: 80px;
 
-  img {
-    width: 24px;
-    height: 24px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
   }
 `
 

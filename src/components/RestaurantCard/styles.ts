@@ -67,9 +67,8 @@ export const Rating = styled.div`
   font-weight: 700;
   color: ${colors.primary};
 
-  img {
-    width: 21px;
-    height: 21px;
+  span {
+    font-size: 21px;
   }
 `
 
