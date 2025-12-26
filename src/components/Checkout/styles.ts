@@ -71,9 +71,16 @@ export const Input = styled.input`
   width: 100%;
   box-sizing: border-box;
   min-width: 0;
+  transition: all 0.2s ease;
 
   &::placeholder {
     color: #4b4b4b;
+  }
+
+  &:focus {
+    outline: 2px solid #ffebd9;
+    outline-offset: 2px;
+    background-color: #fff;
   }
 `
 
@@ -86,9 +93,15 @@ export const Button = styled.button`
   font-weight: 700;
   cursor: pointer;
   margin-top: 16px;
+  transition: all 0.2s ease;
 
   &:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 `
 
@@ -101,9 +114,10 @@ export const BackButton = styled.button`
   font-weight: 700;
   cursor: pointer;
   margin-top: 8px;
+  transition: all 0.2s ease;
 
   &:hover {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 `
 

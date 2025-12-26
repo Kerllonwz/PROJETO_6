@@ -46,9 +46,27 @@ export const Nav = styled.nav`
     color: ${colors.primary};
     text-decoration: none;
     cursor: pointer;
+    transition: color 0.2s ease;
+    position: relative;
 
     &:hover {
-      text-decoration: underline;
+      color: ${colors.primary};
+      opacity: 0.8;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: ${colors.primary};
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
     }
   }
 `
@@ -58,8 +76,11 @@ export const CartButton = styled.span`
   font-weight: 900;
   color: ${colors.primary};
   cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
 
   &:hover {
-    text-decoration: underline;
+    opacity: 0.8;
+    transform: scale(1.05);
   }
 `

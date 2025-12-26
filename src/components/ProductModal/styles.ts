@@ -11,6 +11,16 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeIn 0.3s ease;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `
 
 export const Modal = styled.div`
@@ -19,7 +29,18 @@ export const Modal = styled.div`
   width: 90%;
   background-color: #e66767;
   padding: 32px;
-  border-radius: 8px;
+  animation: scaleIn 0.3s ease;
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 `
 
 export const CloseButton = styled.button`
@@ -38,8 +59,10 @@ export const CloseButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
 
   &:hover {
+    transform: rotate(90deg);
     opacity: 0.8;
   }
 `
@@ -98,8 +121,14 @@ export const AddButton = styled.button`
   font-weight: 700;
   cursor: pointer;
   align-self: flex-start;
+  transition: all 0.2s ease;
 
   &:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 `

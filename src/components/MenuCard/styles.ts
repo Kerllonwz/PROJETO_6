@@ -8,6 +8,12 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `
 
 export const Image = styled.img`
@@ -39,8 +45,10 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   width: 100%;
+  transition: all 0.2s ease;
 
   &:hover {
-    opacity: 0.8;
+    background-color: ${colors.cream};
+    transform: translateY(-2px);
   }
 `
