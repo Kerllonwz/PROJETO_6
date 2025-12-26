@@ -5,6 +5,8 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MenuList from '../../components/MenuList'
 import Cart from '../../components/Cart'
+import ProductModal from '../../components/ProductModal'
+import Checkout from '../../components/Checkout'
 import { MenuItem } from '../../types'
 import * as S from './styles'
 
@@ -326,13 +328,28 @@ const Restaurant = () => {
   const { id } = useParams()
   const { addToCart } = useCart()
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState<MenuItem | null>(null)
+  const [isProductModalOpen, setIsProductModalOpen] = useState(false)
   
   const restaurantId = Number(id) || 2
   const restaurant = restaurantInfo[restaurantId] || restaurantInfo[2]
   const mockMenu = menusByRestaurant[restaurantId] || menusByRestaurant[2]
 
   const handleAddToCart = (item: MenuItem) => {
-    addToCart(item)
+    setSelectedProduct(item)
+    setIsProductModalOpen(true)
+  }
+
+  const handleConfirmAddToCart = () => {
+    if (selectedProduct) {
+      addToCart(selectedProduct)
+    }
+  }
+
+  const handleContinueToCheckout = () => {
+    setIsCartOpen(false)
+    setIsCheckoutOpen(true)
   }
 
   return (
@@ -350,7 +367,21 @@ const Restaurant = () => {
         <MenuList items={mockMenu} onAddToCart={handleAddToCart} />
       </div>
       <Footer />
-      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <ProductModal 
+        isOpen={isProductModalOpen} 
+        onClose={() => setIsProductModalOpen(false)}
+        item={selectedProduct}
+        onAddToCart={handleConfirmAddToCart}
+      />
+      <Cart 
+        isOpen={isCartOpen} 
+        onClose={() => setIsCartOpen(false)}
+        onContinueToCheckout={handleContinueToCheckout}
+      />
+      <Checkout 
+        isOpen={isCheckoutOpen} 
+        onClose={() => setIsCheckoutOpen(false)}
+      />
     </>
   )
 }

@@ -4,9 +4,10 @@ import * as S from './styles'
 interface Props {
   isOpen: boolean
   onClose: () => void
+  onContinueToCheckout?: () => void
 }
 
-const Cart = ({ isOpen, onClose }: Props) => {
+const Cart = ({ isOpen, onClose, onContinueToCheckout }: Props) => {
   const { items, removeFromCart, getTotalPrice } = useCart()
 
   if (!isOpen) return null
@@ -21,20 +22,21 @@ const Cart = ({ isOpen, onClose }: Props) => {
       return
     }
     
-    const total = getTotalPrice()
-    const itemsList = items
-      .map((item) => `${item.quantity}x ${item.name} - R$ ${formatPrice(item.price * item.quantity)}`)
-      .join('\n')
-    
-    alert(
-      `Pedido finalizado!\n\n` +
-      `Itens:\n${itemsList}\n\n` +
-      `Total: R$ ${formatPrice(total)}\n\n` +
-      `Em breve você será redirecionado para a página de entrega.`
-    )
-    
-    // Aqui você pode adicionar navegação para página de checkout
-    // Por exemplo: navigate('/checkout')
+    if (onContinueToCheckout) {
+      onContinueToCheckout()
+    } else {
+      const total = getTotalPrice()
+      const itemsList = items
+        .map((item) => `${item.quantity}x ${item.name} - R$ ${formatPrice(item.price * item.quantity)}`)
+        .join('\n')
+      
+      alert(
+        `Pedido finalizado!\n\n` +
+        `Itens:\n${itemsList}\n\n` +
+        `Total: R$ ${formatPrice(total)}\n\n` +
+        `Em breve você será redirecionado para a página de entrega.`
+      )
+    }
   }
 
   return (
